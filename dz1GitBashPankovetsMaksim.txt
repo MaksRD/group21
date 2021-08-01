@@ -1,0 +1,86 @@
+1) Посмотреть где я -  [pwd];
+2) Создать папку - [mkdir folder1];
+3) Зайти в папку - [cd folder1];
+4) Создать 3 папки -[mkdir folder2 folder3 folder4];
+5) Зайти в любую папку - [cd folder3];
+6) Создать 5 файлов (3 txt, 2 json) -[touch file1.txt file2.txt file3.txt file1.json file2.json];
+7) Создать 3 папки - [mkdir folder5 folder6 folder7];
+8. Вывести список содержимого папки - [ls -la];
+9) + Открыть любой txt файл - [vi file1.txt];
+10) + написать туда что-нибудь, любой текст. - [one two three four five six seven eight nine ten eleven (записал столбиком);
+11) + сохранить и выйти. - [Esc + : + wq];
+12) Выйти из папки на уровень выше - [cd ..]
+—
+13) переместить любые 2 файла, которые вы создали, в любую другую папку. – 
+[mv /d/homework1/folder1/folder3/file2.txt /d/homework1/folder/1/folder3/folder7],
+[mv /d/homework1/folder1/folder3/file2.json /d/homework1/folder/1/folder3/folder7]; 
+14) скопировать любые 2 файла, которые вы создали, в любую другую папку. – 
+[cp /d/homework1/folder1/folder3/file1.txt /d/homework1/folder1/folder3/folder5],
+[cp /d/homework1/folder1/folder3/file1.json /d/homework1/folder1/folder3/folder5];
+15) Найти файл по имени - [find . -name "file2.json];
+16) просмотреть содержимое в реальном времени (команда grep) изучите как она работает. –
+[1) заходим в корень к файлу(file1.txt) 
+2) grep en file1.txt выводятся: seven, ten, eleven];
+17) вывести несколько первых строк из текстового файла - [head -2 file1.txt];
+18) вывести несколько последних строк из текстового файла - [tail -2 file1.txt];
+19) просмотреть содержимое длинного файла (команда less) изучите как она работает. – 
+[less file1.txt] (less test1.txt (открывает файл без возможности редактирования, 
+можно поставить параметры между командой и файлом например -n и будет нумерация строк или -i поиск будет проводиться без учёта регистра,  поиска через /какое-то слово. 
+
+20) вывести дату и время - [date]
+ 
+
+Задание *
+1) Отправить http запрос на сервер.
+https://api.quarantine.country/api/v1/regions            
+ответ: curl  https://api.quarantine.country/api/v1/regions
+$ curl https://api.quarantine.country/api/v1/regions
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0{"status":200,"type":"stack","data":
+[{"key":"afghanistan","name":"Afghanistan","iso3166a2":"AF","iso3166a3":"AFG","iso3166numeric":4},{"key":"albania",
+"name":"Albania","iso3166a2":"AL","iso3166a3":"ALB","iso3166numeric":248},{"key":"algeria","name":"Algeria","iso3166a2":
+"DZ","iso3166a3":"DZA","iso3166numeric":12},{"key":"andorra","name":"Andorra","iso3166a2":"AD","iso3166a3":"AND","iso316
+6numeric":20},{"key":"angola","name":"Angola","iso3166a2":"AO","iso3166a3":"AGO","iso3166numeric":24},{"key":"anguilla",
+"name":"Anguilla","iso3166a2":"AI","iso3166a3":"AIA","iso3166numeric":660},{"key":"antigua_and_barbuda","name":"Antigua 
+and Barbuda","iso3166a2":"AG","iso3166a3":"ATG","iso3166numeric":28},{"key":"argentina","name":"Argentina","iso3166a2":"
+AR","iso3166a3":"ARG","iso3166numeric":32},{"key":"armenia","name":"Armenia","iso3166a2":"AM","iso3166a3":"ARM","iso3166
+numeric":51},{"key":"aruba","name":"Aruba","iso3166a2":"AW","iso3166a3":"ABW","iso3166numeric":533},{"key":"australia","
+name":"Australia","iso3166a2":"AU","iso3166a3":"AUS","iso3166numeric":36},{"key":"austria","name":"Austria","iso3166a2":
+"AT","iso3166a3":"AUT","iso3166numeric":40},{"key":"azerbaijan","name":"Azerbaijan","iso3166a2":"AZ","iso3166a3":"AZE","
+iso3166numeric":31},{"key":"bahamas","name":"Bahamas","iso3166a2":"BS","iso3166a3":"BHS","iso3166numeric":44},{"key":"ba
+hrain","name":"Bahrain","iso3166a2":"BH","iso3166a3":"BHR","iso3166numeric":48},{"key":"bangladesh","name":"Bangladesh",
+"iso3166a2":"BD","iso3166a и т.д.
+2)  Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13
+
+1.	Создал новую папку homework1hard – [cd homework1hard]
+2.	Создал файл touch filescript1.txt, запустил vi filescript1 и запулил туда команды:
+#! /bin/bash
+mkdir folder1
+cd folder1
+mkdir folder2 folder3 folder4
+cd folder3
+touch file1.txt file2.txt file3.txt file1.json file2.json
+mkdir folder5 folder6 folder7
+ls -la
+mv file1.txt /d/homework1hard/folder1/folder3/folder7
+затем сохранил esc+:+wq;
+3.Добавляем привилегию x –[chmod a+x filescript1.txt]
+4.Запускаем – [bash ./filescript1.txt].
+ответ:
+$ bash ./filescript1.txt
+total 4
+drwxr-xr-x 1 admin 197121 0 Aug  1 14:51 .
+drwxr-xr-x 1 admin 197121 0 Aug  1 14:51 ..
+-rw-r--r-- 1 admin 197121 0 Aug  1 14:51 file1.json
+-rw-r--r-- 1 admin 197121 0 Aug  1 14:51 file1.txt
+-rw-r--r-- 1 admin 197121 0 Aug  1 14:51 file2.json
+-rw-r--r-- 1 admin 197121 0 Aug  1 14:51 file2.txt
+-rw-r--r-- 1 admin 197121 0 Aug  1 14:51 file3.txt
+drwxr-xr-x 1 admin 197121 0 Aug  1 14:51 folder5
+drwxr-xr-x 1 admin 197121 0 Aug  1 14:51 folder6
+drwxr-xr-x 1 admin 197121 0 Aug  1 14:51 folder7
+
+ 
+
+
