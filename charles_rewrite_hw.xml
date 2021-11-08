@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<?charles serialisation-version='2.0' ?>
+<rewriteSet-array>
+  <rewriteSet>
+    <active>false</active>
+    <name>ex_1</name>
+    <hosts>
+      <locationPatterns>
+        <locationMatch>
+          <location>
+            <protocol>http</protocol>
+            <host>162.55.220.72</host>
+            <port>5005</port>
+            <path>/get_method</path>
+          </location>
+          <enabled>true</enabled>
+        </locationMatch>
+      </locationPatterns>
+    </hosts>
+    <rules>
+      <rewriteRule>
+        <active>true</active>
+        <ruleType>9</ruleType>
+        <matchHeader>name</matchHeader>
+        <matchValue>maksim</matchValue>
+        <matchHeaderRegex>false</matchHeaderRegex>
+        <matchValueRegex>false</matchValueRegex>
+        <matchRequest>false</matchRequest>
+        <matchResponse>false</matchResponse>
+        <newHeader>name</newHeader>
+        <newValue>dima</newValue>
+        <newHeaderRegex>false</newHeaderRegex>
+        <newValueRegex>false</newValueRegex>
+        <matchWholeValue>true</matchWholeValue>
+        <caseSensitive>false</caseSensitive>
+        <replaceType>2</replaceType>
+      </rewriteRule>
+    </rules>
+  </rewriteSet>
+</rewriteSet-array>
